@@ -1,30 +1,47 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <el-menu class="menu" mode="horizontal">
+      <el-menu-item index="1">
+        <router-link class="nav-link" to="/about"
+          >About</router-link
+        ></el-menu-item
+      >
+    </el-menu>
+
+    <div id="routes">
+      <router-view />
+    </div>
   </div>
-  <router-view/>
 </template>
 
 <style>
+* {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  border-bottom: 2px solid #dde6f1;
+}
+
+#app > ul > li > a {
+  color: #034694;
+  text-decoration: none;
+}
+
 #app {
+  display: flex;
+  flex-direction: column;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
   text-align: center;
-  color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#routes {
+  background-color: #f3f6fa;
+  flex-grow: 1;
 }
 </style>
